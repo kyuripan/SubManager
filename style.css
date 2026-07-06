@@ -1,0 +1,126 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Yu Gothic",sans-serif;
+}
+
+body{
+    background:#f4f6fb;
+}
+
+.container{
+    width:90%;
+    max-width:500px;
+    margin:30px auto;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.summary{
+    display:flex;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+.card{
+    flex:1;
+    background:white;
+    padding:15px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 0 10px rgba(0,0,0,.1);
+}
+
+.card p{
+    font-size:24px;
+    color:#3f51b5;
+    font-weight:bold;
+}
+
+.box{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    margin-bottom:20px;
+    box-shadow:0 0 10px rgba(0,0,0,.1);
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    border:none;
+    border-radius:8px;
+    background:#3f51b5;
+    color:white;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#2f3fa0;
+}
+
+/* 検索結果 */
+.resultItem{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#eee;
+    padding:10px;
+    margin-top:10px;
+    border-radius:10px;
+}
+
+/* サービス名 */
+.left{
+    flex:1;
+}
+
+/* 選択ボタン */
+.selectBtn{
+    width:80px;
+    height:40px;
+    padding:0;
+    margin-left:10px;
+    flex-shrink:0;
+}
+
+/* 契約一覧 */
+li{
+    list-style:none;
+    background:white;
+    padding:15px;
+    margin-bottom:10px;
+    border-radius:10px;
+    box-shadow:0 0 8px rgba(0,0,0,.1);
+}
+
+.action{
+    display:flex;
+    gap:10px;
+    margin-top:10px;
+}
+
+.action button{
+    flex:1;
+}
+
+.delete{
+    background:#e53935;
+}
+
+.edit{
+    background:#43a047;
+}
