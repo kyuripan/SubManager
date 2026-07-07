@@ -1,84 +1,170 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>サブスク管理アプリ</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>サブスク管理アプリ</title>
 
-<link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <div class="container">
 
-<h1>📱 サブスク管理</h1>
+    <h1>📱 サブスク管理</h1>
 
-<div class="summary">
+    <!-- 合計 -->
+    <div class="summary">
 
-    <div class="card">
-        <h3>今月</h3>
-        <p>¥<span id="monthly">0</span></p>
+        <div class="card">
+            <h3>今月</h3>
+            <p>¥<span id="monthly">0</span></p>
+        </div>
+
+        <div class="card">
+            <h3>年間</h3>
+            <p>¥<span id="yearly">0</span></p>
+        </div>
+
     </div>
 
-    <div class="card">
-        <h3>年間</h3>
-        <p>¥<span id="yearly">0</span></p>
+    <!-- 検索 -->
+    <div class="box">
+
+        <h2>サブスク検索</h2>
+
+        <input
+            type="text"
+            id="search"
+            placeholder="サービス名を入力">
+
+        <button onclick="searchSub()">
+            検索
+        </button>
+
+        <div id="result"></div>
+
     </div>
 
+    <!-- 登録 -->
+    <div class="box">
+
+        <h2>登録</h2>
+
+        <!-- サービス名 -->
+        <input
+            type="text"
+            id="name"
+            placeholder="サービス名">
+
+        <!-- プラン -->
+        <select
+            id="plan"
+            onchange="planChanged()">
+
+            <option value="">
+                プランを選択
+            </option>
+
+        </select>
+
+        <!-- 自分で入力用 -->
+        <div
+            id="customTypeArea"
+            style="display:none;">
+
+            <label>
+                <input
+                    type="radio"
+                    name="customType"
+                    value="monthly"
+                    checked
+                    onchange="changeCustomType()">
+
+                月額
+            </label>
+
+            <label>
+
+                <input
+                    type="radio"
+                    name="customType"
+                    value="yearly"
+                    onchange="changeCustomType()">
+
+                年額
+            </label>
+
+        </div>
+
+        <!-- プラン名 -->
+        <div
+            id="customPlanArea"
+            style="display:none;">
+
+            <input
+                type="text"
+                id="customPlanName"
+                placeholder="プラン名を入力">
+
+        </div>
+
+        <!-- 月額 -->
+        <div id="monthlyArea">
+
+            <input
+                type="number"
+                id="monthlyPrice"
+                placeholder="月額料金">
+
+            <input
+                type="number"
+                id="day"
+                min="1"
+                max="31"
+                placeholder="支払日（1～31）">
+
+        </div>
+
+        <!-- 年額 -->
+        <div
+            id="yearlyArea"
+            style="display:none;">
+
+            <input
+                type="number"
+                id="yearlyPrice"
+                placeholder="年額料金">
+
+            <input
+                type="date"
+                id="renewDate">
+
+        </div>
+
+        <p class="note">
+            ※ 自分で入力を選ぶと、プラン名・料金を自由に設定できます。
+        </p>
+
+        <button
+            id="addBtn"
+            onclick="addSub()">
+
+            追加
+
+        </button>
+
+    </div>
+
+    <!-- 契約一覧 -->
+    <h2>契約中</h2>
+
+    <ul id="list"></ul>
+
 </div>
-
-<div class="box">
-
-    <h2>サブスク検索</h2>
-
-    <input
-        type="text"
-        id="search"
-        placeholder="Netflixなど">
-
-    <button onclick="searchSub()">
-        検索
-    </button>
-
-    <div id="result"></div>
-
-</div>
-
-<div class="box">
-
-    <h2>登録</h2>
-
-    <input
-        type="text"
-        id="name"
-        placeholder="サービス名">
-
-    <input
-        type="number"
-        id="price"
-        placeholder="月額料金">
-
-    <input
-        type="number"
-        id="day"
-        placeholder="支払日(1～31)"
-        min="1"
-        max="31">
-
-    <button id="addBtn" onclick="addSub()">
-        追加
-    </button>
-
-</div>
-
-<h2>契約中</h2>
-
-<ul id="list"></ul>
-
-</div>
-
+<script src="services.js"></script>
 <script src="script.js"></script>
 
 </body>
