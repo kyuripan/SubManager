@@ -11,13 +11,17 @@ body{
 
 .container{
     width:90%;
-    max-width:500px;
+    max-width:550px;
     margin:30px auto;
 }
 
 h1{
     text-align:center;
     margin-bottom:20px;
+}
+
+h2{
+    margin-bottom:10px;
 }
 
 .summary{
@@ -28,7 +32,7 @@ h1{
 
 .card{
     flex:1;
-    background:white;
+    background:#fff;
     padding:15px;
     border-radius:15px;
     text-align:center;
@@ -36,36 +40,56 @@ h1{
 }
 
 .card p{
+    margin-top:8px;
     font-size:24px;
     color:#3f51b5;
     font-weight:bold;
 }
 
 .box{
-    background:white;
+    background:#fff;
     padding:20px;
     border-radius:15px;
     margin-bottom:20px;
     box-shadow:0 0 10px rgba(0,0,0,.1);
 }
 
-input{
+input,
+select{
     width:100%;
     padding:10px;
     margin-top:10px;
     border:1px solid #ccc;
     border-radius:8px;
+    font-size:16px;
+    background:#fff;
+}
+
+label{
+    display:block;
+    margin-top:12px;
+    font-size:14px;
+    color:#555;
+}
+
+.note{
+    margin-top:10px;
+    font-size:13px;
+    color:#666;
+    line-height:1.5;
 }
 
 button{
     width:100%;
     padding:10px;
-    margin-top:10px;
+    margin-top:12px;
     border:none;
     border-radius:8px;
     background:#3f51b5;
-    color:white;
+    color:#fff;
+    font-size:16px;
     cursor:pointer;
+    transition:.2s;
 }
 
 button:hover{
@@ -73,54 +97,150 @@ button:hover{
 }
 
 /* 検索結果 */
+
 .resultItem{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    background:#eee;
-    padding:10px;
+    gap:10px;
+    background:#f2f2f2;
+    padding:12px;
     margin-top:10px;
     border-radius:10px;
 }
 
-/* サービス名 */
 .left{
     flex:1;
 }
 
-/* 選択ボタン */
-.selectBtn{
-    width:80px;
-    height:40px;
-    padding:0;
-    margin-left:10px;
-    flex-shrink:0;
+.left b{
+    display:block;
+    font-size:17px;
+}
+
+.resultItem select{
+    width:220px;
+    margin-top:0;
+}
+
+/* 自分で入力 */
+
+#customTypeArea{
+    margin-top:15px;
+    padding:12px;
+    background:#f7f7f7;
+    border-radius:10px;
+    border:1px solid #ddd;
+}
+
+#customTypeArea label{
+    display:inline-flex;
+    align-items:center;
+    margin-right:20px;
+    cursor:pointer;
+    font-size:15px;
+    color:#333;
+}
+
+#customTypeArea input[type="radio"]{
+    width:auto;
+    margin:0 6px 0 0;
+}
+
+/* 月額・年額 */
+
+#monthlyArea,
+#yearlyArea{
+    margin-top:10px;
 }
 
 /* 契約一覧 */
+
 li{
     list-style:none;
-    background:white;
+    background:#fff;
     padding:15px;
-    margin-bottom:10px;
-    border-radius:10px;
+    margin-bottom:12px;
+    border-radius:12px;
     box-shadow:0 0 8px rgba(0,0,0,.1);
+    line-height:1.8;
+}
+
+.planName{
+    display:inline-block;
+    font-weight:bold;
+    color:#444;
+    margin-top:5px;
+}
+
+.monthlyTag{
+    display:inline-block;
+    background:#2196f3;
+    color:#fff;
+    padding:3px 10px;
+    border-radius:20px;
+    font-size:12px;
+}
+
+.yearlyTag{
+    display:inline-block;
+    background:#ff9800;
+    color:#fff;
+    padding:3px 10px;
+    border-radius:20px;
+    font-size:12px;
 }
 
 .action{
     display:flex;
     gap:10px;
-    margin-top:10px;
+    margin-top:15px;
 }
 
 .action button{
     flex:1;
+    margin-top:0;
+}
+
+.edit{
+    background:#43a047;
+}
+
+.edit:hover{
+    background:#2e7d32;
 }
 
 .delete{
     background:#e53935;
 }
 
-.edit{
-    background:#43a047;
+.delete:hover{
+    background:#c62828;
+}
+
+/* スマホ */
+
+@media (max-width:600px){
+
+    .summary{
+        flex-direction:column;
+    }
+
+    .resultItem{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .resultItem select{
+        width:100%;
+    }
+
+    .action{
+        flex-direction:column;
+    }
+
+    #customTypeArea label{
+        display:block;
+        margin-bottom:10px;
+    }
 }
